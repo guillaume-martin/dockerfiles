@@ -7,12 +7,6 @@ services:
         ports:
             - "9200:9200"
             - "9300:9300"
-<<<<<<< HEAD
-#        configs:
-#            - source: elasticsearch_config
-#              target: /usr/share/elasticsearch/config/elasticsearch.yml
-=======
->>>>>>> fix
         volumes:
             - ./elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elaticsearch.yml:ro
             # - esdata:/usr/share/elasticsearch/data
@@ -23,14 +17,8 @@ services:
         image: docker.elastic.co/kibana/kibana:${TAG}
         ports:
             - "5601:5601"
-<<<<<<< HEAD
-#        configs:
-#            - source: kibana_config
-#              target: /usr/share/kibana/config/kibana.yml
-=======
         volumes:
             - ./kibana/config/:/usr/share/kibana/config:ro
->>>>>>> fix
         networks:
             - elk
         depends_on:
@@ -41,17 +29,9 @@ services:
         ports:
             - "5000:5000"
             - "9600:9600"
-<<<<<<< HEAD
-#        configs:
-#            - source: logstash_config
-#              target: /usr/shate/logstash/config/logstash.yml
-#            - source: logstash_pipeline 
-#              target: /usr/share/logstash/pipeline/logstash.conf
-=======
         volumes:
             - ./logstash/config/logstash.yml:/usr/share/logstash/config/logstash.yml:ro
             - ./logstash/pipeline:/usr/share/logstash/pipeline:ro
->>>>>>> fix
         networks:
             - elk
         depends_on:
